@@ -4,18 +4,22 @@
   "version": "0.0.1",
   "type": "module",
   "homepage": "https://github.com/arisonadim/currency-rates#readme",
-  "license" : "MIT",
+  "license": "MIT",
   "author": "Dmitry Ermilov <info@makpoc.ru> (https://github.com/arisonadim/)",
   "scripts": {
     "dev": "vite",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "path": "^0.12.7",
+    "pinia": "^2.1.7",
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@types/node": "^20.12.2",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
