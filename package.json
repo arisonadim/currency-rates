@@ -1,10 +1,14 @@
 {
   "name": "currency-rates",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "homepage": "https://github.com/arisonadim/currency-rates#readme",
+  "license" : "MIT",
+  "author": "Dmitry Ermilov <info@makpoc.ru> (https://github.com/arisonadim/)",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
