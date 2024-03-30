@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HelloWorld from 'Components/HelloWorld.vue'
+import RatesList from '../pages/rates-list'
 </script>
 
 <template>
@@ -11,7 +11,8 @@ import HelloWorld from 'Components/HelloWorld.vue'
       <img src="../assets/images/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <RatesList />
+  
 </template>
 
 <style scoped>
