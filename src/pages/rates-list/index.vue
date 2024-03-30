@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useRates } from '../../app/providers'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const ratesStore = useRates()
+const str = ref('')
 
 onMounted(() => {
   ratesStore.fetchRates()
@@ -11,10 +12,12 @@ onMounted(() => {
 
 <template>
   <div class="rates-list">
+    <input type="text" v-model="str">
     <div class="rates-list__table" v-if="ratesStore.rates.length">
       <div>Заголовок</div>
+      <div>{{  str  }}</div>
       <div
-        v-for="item in ratesStore.rates"
+        v-for="item in ratesStore.filterRates(str)"
         :key="item?.details.ID"
         class="rates-list__item"
       >
