@@ -10,10 +10,11 @@ export const useRates = defineStore('rates', {
   getters: {
     filterRates(state) {
       return (str = '') => {
+        const strTrimmed = str.trim()
         const rates = state.rates.filter((i) => {
-          return i.currency.includes(str.toUpperCase()) ||
-              i.details.NumCode.includes(str.toLowerCase()) ||
-              str.trim() === ''
+          return i.currency.includes(strTrimmed.toUpperCase()) ||
+              i.details.NumCode.includes(strTrimmed.toLowerCase()) ||
+              strTrimmed === ''
         })
         return rates
       }
