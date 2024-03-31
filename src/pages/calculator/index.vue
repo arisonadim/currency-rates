@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 import { useRates, useCalc } from 'App/providers'
 
 // TODO validate on input, watch and calc
@@ -13,28 +13,18 @@ const fromCurrency = ref('EUR')
 const toCurrency = ref('USD')
 
 const flip = () => {
-  const amount = fromAmount.value
-  fromAmount.value = toAmount.value
-  toAmount.value = amount
-  const currency = fromCurrency.value
-  fromCurrency.value = toCurrency.value
-  toCurrency.value = currency
+  [ fromAmount.value, toAmount.value ] = [ toAmount.value, fromAmount.value ];
+  [ fromCurrency.value, toCurrency.value ] = [ toCurrency.value, fromCurrency.value ];
 }
 
-onMounted(() => {
-  calcStore.calc()
+watch([fromAmount, () => fromCurrency.value, () => toCurrency.value], ([a, b, c ]) => {
+  toAmount.value = calcStore.calc(a, b, c)
 })
-
-const update = () => {
-  console.log('update');
-  
-}
-
 </script>
 
 <template>
   <div class="calculator">
-    <input type="number" v-model="fromAmount" @update="() => update"/>
+    <input type="number" v-model="fromAmount"/>
     <select v-model="fromCurrency">
       <option
         v-for="item in ratesStore.rates"

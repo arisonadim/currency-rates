@@ -11,9 +11,11 @@ export const useRates = defineStore('rates', {
     filterRates(state) {
       return (str = '') => {
         const rates = state.rates.filter((i) => {
-          return i.currency.includes(str.toUpperCase()) ||
-              i.details.NumCode.includes(str.toLowerCase()) ||
-              str === ''
+          return (
+            i.currency.includes(str.toUpperCase()) ||
+            i.details.NumCode.includes(str.toLowerCase()) ||
+            str === ''
+          )
         })
         return rates
       }
@@ -41,16 +43,22 @@ export const useRates = defineStore('rates', {
 
 export const useCalc = defineStore('calculator', {
   state: () => ({
+    // fromAmount: 0,
+    // toAmount: 0,
+    // fromCurrency: 'EUR',
+    // toCurrency: 'USD',
   }),
-  getters: {
-  },
+  getters: {},
   actions: {
-    calc() {
+    calc(fromAmount: number, fromCurrency: string, toCurrency: string) {
       const ratesStore = useRates()
-      const fromRate = ratesStore.rates.find((i) => i.currency === 'UDS')?.details.Value
-      const result = fromRate;
-      console.log('calc', fromRate);
-      return result
-    }
-  }
+      const fromRate = ratesStore.rates.find((i) => i.currency === fromCurrency)
+        ?.details.Value
+      const toRate = ratesStore.rates.find((i) => i.currency === toCurrency)
+        ?.details.Value
+      const result = (fromRate && toRate) ? (fromAmount * fromRate) / toRate : 0
+      // console.log('Number(result.toFixed(2))', Number(result.toFixed(2)));
+      return Number(result.toFixed(2))
+    },
+  },
 })
