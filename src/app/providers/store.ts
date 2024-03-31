@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import type { Rates, State } from '../types'
+import type { State } from '../types'
 
 export const useRates = defineStore('rates', {
   state: (): State => ({
@@ -10,11 +10,10 @@ export const useRates = defineStore('rates', {
   getters: {
     filterRates(state) {
       return (str = '') => {
-        const strTrimmed = str.trim()
         const rates = state.rates.filter((i) => {
-          return i.currency.includes(strTrimmed.toUpperCase()) ||
-              i.details.NumCode.includes(strTrimmed.toLowerCase()) ||
-              strTrimmed === ''
+          return i.currency.includes(str.toUpperCase()) ||
+              i.details.NumCode.includes(str.toLowerCase()) ||
+              str === ''
         })
         return rates
       }
@@ -38,4 +37,20 @@ export const useRates = defineStore('rates', {
       }
     },
   },
+})
+
+export const useCalc = defineStore('calculator', {
+  state: () => ({
+  }),
+  getters: {
+  },
+  actions: {
+    calc() {
+      const ratesStore = useRates()
+      const fromRate = ratesStore.rates.find((i) => i.currency === 'UDS')?.details.Value
+      const result = fromRate;
+      console.log('calc', fromRate);
+      return result
+    }
+  }
 })

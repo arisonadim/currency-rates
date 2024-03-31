@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import RatesList from '../pages/rates-list'
+import RatesList from 'Pages/rates-list'
+import Calculator from 'Pages/calculator'
 </script>
 
 <template>
@@ -11,8 +12,8 @@ import RatesList from '../pages/rates-list'
       <img src="../assets/images/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+  <Calculator />
   <RatesList />
-  
 </template>
 
 <style scoped>
