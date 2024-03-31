@@ -18,8 +18,28 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "Styles/*": ["src/assets/styles/*"],
+      "Images/*": ["src/assets/images/*"],
+      "Fonts/*": ["src/assets/fonts/*"],
+      "Components/*": ["src/components/*"],
+      "UI/*": ["src/shared/*"],
+      "Entities/*": ["src/entities/*"],
+      "Features/*": ["src/features/*"],
+      "Widgets/*": ["src/widgets/*"],
+      "Pages/*": ["src/pages/*"],
+      "App/*": ["src/app/*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "styles.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
