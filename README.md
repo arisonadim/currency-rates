@@ -12,6 +12,8 @@ Stack, used in this demo app
 - Feature slice design (FSD)
 - Vitest
 
+Special thanks to Folder Template VS Code plugin that helped to automate creation FSD structure in just one click.
+
 ## How to run it locally
 
 Clone repositiry and run
