@@ -27,6 +27,7 @@ onMounted(() => {
       min="0"
       :placeholder="props.placeholder"
       :disabled="props.disabled"
+      pattern="\d*"
       v-model.number="amount"
     />
     <select v-model="currency">
