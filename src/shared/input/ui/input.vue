@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { Rates } from 'App/types'
-
 const props = defineProps<{
   placeholder?: string
   type?: 'text' | 'number'
   clear?: boolean
-  select?: Rates[]
   icon?: boolean
   disabled?: boolean
+  
 }>()
 
 const model = defineModel()

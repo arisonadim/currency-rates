@@ -28,5 +28,10 @@ const btnClick = () => {
   border: none;
   border-radius: 5rem;
   font-size: 2rem;
+
+  &--margin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 </style>
