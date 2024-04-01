@@ -40,6 +40,7 @@ watch(
       v-model:amount="toAmount"
       v-model:currency="toCurrency"
       :select="ratesStore.rates"
+      :disabled="true"
     />
   </div>
 </template>
