@@ -36,8 +36,5 @@ const props = defineProps<{
     border-radius: 5rem;
     background: var(--cardbackground);
   }
-
-  .rates-item {
-  }
 }
 </style>

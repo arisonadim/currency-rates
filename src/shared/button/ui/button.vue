@@ -4,8 +4,6 @@ const props = defineProps<{
   to?: string
 }>()
 
-console.log(props.to);
-
 const emit = defineEmits<{
   (e: 'click'): void
 }>()
@@ -13,7 +11,6 @@ const emit = defineEmits<{
 const btnClick = () => {
   emit('click')
 }
-
 </script>
 
 <template>

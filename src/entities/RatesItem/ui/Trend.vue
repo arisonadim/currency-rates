@@ -6,15 +6,15 @@ const props = defineProps<{
   previous: number
 }>()
 
-const isGroing = computed(() => {
+const isGrowing = computed(() => {
   return props.current >= props.previous
 })
 </script>
 
 <template>
-  <div class='trend' :class="{ 'trend--green': isGroing }">
-    <span>{{ isGroing ? '&#x2197;' :  '&#x2198;' }}</span>&nbsp;
-    <span>{{ isGroing ? '+' : '-'  }}</span>
+  <div class='trend' :class="{ 'trend--green': isGrowing }">
+    <span>{{ isGrowing ? '&#x2197;' :  '&#x2198;' }}</span>&nbsp;
+    <span>{{ isGrowing ? '+' : '-'  }}</span>
     <span>{{ Math.abs((props.current - props.previous)).toFixed(3)  }}</span>
   </div>
 </template>

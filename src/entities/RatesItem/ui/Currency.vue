@@ -1,11 +1,11 @@
 <script setup lang="ts">
+
 const props = defineProps<{
   currency: string
   code: string
   name: string
 }>()
 
-// TODO fallback fo flag img
 </script>
 
 <template>
