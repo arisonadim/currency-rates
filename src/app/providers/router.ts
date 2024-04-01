@@ -5,9 +5,10 @@ import Calculator from 'Pages/calculator'
 import NotFound from 'Pages/404'
 
 const routes = [
-  { path: '/calc', component: Calculator },
-  { path: '/', component: Rates },
-  { path: '/:NotFound(.*)', name: 'NotFound', component: NotFound }
+  { path: '/', name: 'Home', component: Rates },
+  { path: '/calc', name: 'Calc', component: Calculator },
+  { path: '/currency-rates', redirect: { name: 'Home' } },
+  { path: '/:NotFound(.*)', name: 'NotFound', component: NotFound },
 ]
 
 export const router = createRouter({
