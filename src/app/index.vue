@@ -11,8 +11,8 @@ onMounted(() => {
 
 <template>
   <nav>
-    <RouterLink to="/">Currency rates</RouterLink>
-    <RouterLink to="/calc">Converter</RouterLink>
+    <RouterLink :to="{ name: 'Home'}">Currency rates</RouterLink>
+    <RouterLink :to="{ name: 'Calc'}">Converter</RouterLink>
   </nav>
   <RouterView/>
 </template>
