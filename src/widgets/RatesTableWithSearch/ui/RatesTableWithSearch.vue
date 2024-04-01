@@ -6,7 +6,7 @@ import { Input } from 'UI/Input'
 import { Button } from 'UI/Button'
 
 const ratesStore = useRates()
-const str = ref('')
+const search = ref('')
 const reverse = ref(false)
 
 const toggleReverse = () => {
@@ -22,14 +22,14 @@ const showTable = computed(() => {
   <div class="rates-list">
     <Input
       type="text"
-      v-model.trim="str"
+      v-model.trim="search"
       :icon="true"
       :clear="true"
-      @clear-input="() => (str = '')"
+      @clear-input="() => (search = '')"
     />
-    <Button @click="toggleReverse">&#8596;</Button>
+    <Button @click="toggleReverse" class="btn--margin">&#8596;</Button>
     <RatesTable
-      :data="ratesStore.filterRates(str)"
+      :data="ratesStore.filterRates(search)"
       :show-table="showTable"
       :reverse="reverse"
     />
