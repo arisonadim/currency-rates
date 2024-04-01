@@ -18,9 +18,10 @@ const currency = defineModel('currency');
   <div class="input-select">
     <input
       type="number"
+      min="0"
       :placeholder="props.placeholder"
       :disabled="props.disabled"
-      v-model="amount"
+      v-model.number="amount"
     />
     <select v-model="currency">
       <option
@@ -35,9 +36,11 @@ const currency = defineModel('currency');
 </template>
 
 <style lang="scss" scoped>
+@import 'Styles/imports';
+
 .input-select {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: repeat(2, auto);
   align-items: center;
   gap: 1rem;
   border-radius: 4rem;
@@ -45,19 +48,34 @@ const currency = defineModel('currency');
   font-size: 2rem;
   text-transform: uppercase;
   border: 1px solid grey;
-  max-width: 25rem;
+  width: 32rem;
 
+  @include sm {
+    width: max(15rem, 100%);
+  }
+  
   input {
     box-shadow: none;
     outline: none;
     border: none;
     font-size: 2rem;
-    width: 11rem;
+    width: max(11rem, 100%);
+    background: transparent;
+    font-size: 2.7rem;
+
+    @include sm {
+      font-size: 2rem;
+    }
 
     &:disabled {
       cursor: not-allowed;
       opacity: 0.9;
     }
+  }
+
+  select {
+    border: none;
+    background: transparent;
   }
 }
 </style>
