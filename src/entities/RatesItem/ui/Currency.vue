@@ -26,7 +26,7 @@ const props = defineProps<{
 </template>
 
 <style lang="scss">
-@import 'Styles/imports.scss';
+@import 'Styles/imports';
 
 .currency {
   display: flex;

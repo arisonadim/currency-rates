@@ -26,7 +26,7 @@ const props = defineProps<{
 </template>
 
 <style lang="scss" scoped>
-@import 'Styles/imports.scss';
+@import 'Styles/imports';
 
 .rate {
   font-size: 1.75rem;

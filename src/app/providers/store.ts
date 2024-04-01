@@ -5,7 +5,6 @@ import type { State } from '../types'
 export const useRates = defineStore('rates', {
   state: (): State => ({
     rates: [],
-    // TODO new Map() ?
   }),
   getters: {
     filterRates(state) {
@@ -42,12 +41,10 @@ export const useRates = defineStore('rates', {
 })
 
 export const useCalc = defineStore('calculator', {
-  state: () => ({
-  }),
+  state: () => ({}),
   getters: {},
   actions: {
     calc(fromAmount: number, fromCurrency: string, toCurrency: string) {
-
       const ratesStore = useRates()
 
       const { Nominal: fromNominal, Value: fromRate } = ratesStore.rates.find(
