@@ -1,0 +1,7 @@
+# RatesTableWithSearch
+
+## Description
+
+## Props
+
+## Usage

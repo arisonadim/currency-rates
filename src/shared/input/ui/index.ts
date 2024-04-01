@@ -1,2 +1,2 @@
-import input from './input.vue'
-export { input }
+import Input from './input.vue'
+export { Input }

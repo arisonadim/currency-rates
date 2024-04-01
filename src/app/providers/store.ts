@@ -43,21 +43,24 @@ export const useRates = defineStore('rates', {
 
 export const useCalc = defineStore('calculator', {
   state: () => ({
-    // fromAmount: 0,
-    // toAmount: 0,
-    // fromCurrency: 'EUR',
-    // toCurrency: 'USD',
   }),
   getters: {},
   actions: {
     calc(fromAmount: number, fromCurrency: string, toCurrency: string) {
+
       const ratesStore = useRates()
-      const fromRate = ratesStore.rates.find((i) => i.currency === fromCurrency)
-        ?.details.Value
-      const toRate = ratesStore.rates.find((i) => i.currency === toCurrency)
-        ?.details.Value
-      const result = (fromRate && toRate) ? (fromAmount * fromRate) / toRate : 0
-      // console.log('Number(result.toFixed(2))', Number(result.toFixed(2)));
+
+      const { Nominal: fromNominal, Value: fromRate } = ratesStore.rates.find(
+        (i) => i.currency === fromCurrency
+      )?.details || { Nominal: 1, Value: 1 }
+
+      const { Nominal: toNominal, Value: toRate } = ratesStore.rates.find(
+        (i) => i.currency === toCurrency
+      )?.details || { Nominal: 1, Value: 1 }
+
+      const result =
+        (((fromAmount * fromRate) / toRate) * toNominal) / fromNominal
+
       return Number(result.toFixed(2))
     },
   },

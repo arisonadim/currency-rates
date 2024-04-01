@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRates, useCalc } from 'App/providers'
+import { Input } from 'UI/Input'
+import { Button } from 'UI/Button'
 
-// TODO validate on input, watch and calc
+// TODO validate on input
 
 const ratesStore = useRates()
 const calcStore = useCalc()
@@ -24,7 +26,7 @@ watch([fromAmount, () => fromCurrency.value, () => toCurrency.value], ([a, b, c 
 
 <template>
   <div class="calculator">
-    <input type="number" v-model="fromAmount"/>
+    <Input v-model="fromAmount" type="number"/>
     <select v-model="fromCurrency">
       <option
         v-for="item in ratesStore.rates"
@@ -34,8 +36,8 @@ watch([fromAmount, () => fromCurrency.value, () => toCurrency.value], ([a, b, c 
         {{ item.currency }}
       </option>
     </select>
-    <button @click="flip">&#8596;</button>
-    <input type="number" v-model="toAmount" disabled />
+    <Button @click="flip">&#8596;</Button>
+    <Input v-model="toAmount" type="number" disabled/>
     <select v-model="toCurrency">
       <option
         v-for="item in ratesStore.rates"
