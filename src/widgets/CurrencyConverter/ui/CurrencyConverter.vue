@@ -21,9 +21,9 @@ const flip = () => {
 }
 
 watch(
-  [fromAmount, () => fromCurrency.value, () => toCurrency.value],
-  ([a, b, c]) => {
-    toAmount.value = calcStore.calc(a, b, c)
+  [fromAmount, fromCurrency, toCurrency],
+  ([fromAmount, fromCurrency, toCurrency]) => {
+    toAmount.value = calcStore.calc(fromAmount, fromCurrency, toCurrency)
   }
 )
 </script>
