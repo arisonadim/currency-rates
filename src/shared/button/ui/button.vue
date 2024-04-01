@@ -1,9 +1,4 @@
 <script setup lang="ts">
-const props = defineProps<{
-  href?: string
-  to?: string
-}>()
-
 const emit = defineEmits<{
   (e: 'click'): void
 }>()
