@@ -16,32 +16,47 @@ const props = defineProps<{
         :alt="`${props.currency} flag`"
       />
     </div>
-    <div class="currency__char">
-      <div><b>{{ props.currency }}</b></div>
-      <div class="currency__info">{{ props.code }}</div>
+    <div class="currency__info">
+      <div class="currency__char">
+        <b>{{ props.currency }}</b>
+      </div>
+      <div class="currency__code">{{ props.code }}</div>
     </div>
-    
   </div>
 </template>
 
 <style lang="scss">
+@import 'Styles/imports.scss';
+
 .currency {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
 
   &__flag {
-    border-radius: 1px;
+    border-radius: 10rem;
+    height: 4rem;
+    width: 4rem;
     overflow: hidden;
 
     img {
       display: block;
+      object-fit: cover;
+      height: 100%;
     }
   }
 
-  &__info {
+  &__code {
     color: grey;
-    font-size: 0.7rem;
+    font-size: 1.5rem;
+  }
+
+  &__info {
+    @include sm {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
   }
 }
 </style>

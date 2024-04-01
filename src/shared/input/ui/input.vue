@@ -87,5 +87,9 @@ const clearInput = () => {
       display: block;
     }
   }
+
+  &-action {
+    cursor: pointer;
+  }
 }
 </style>

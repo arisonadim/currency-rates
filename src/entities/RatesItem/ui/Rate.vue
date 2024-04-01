@@ -10,29 +10,35 @@ const props = defineProps<{
 <template>
   <div class="rate">
     <div v-if="!reverse">
-      <span>{{ props.nominal }} {{ props.currency }}</span>
-      <span>&nbsp;=&nbsp;</span>
-      <span
-        ><b>{{ props.rate.toFixed(3) }}</b> RUB</span
-      >
+      <div>{{ props.nominal }} <span class="rate__currency">{{ props.currency }}</span></div>
+      <div>&nbsp;=&nbsp;</div>
+      <div><b>{{ props.rate.toFixed(3) }}</b> <span class="rate__currency">RUB</span></div>
     </div>
     <div v-else>
-      <span>1 RUB </span> <span>&nbsp;=&nbsp;</span>
-      <span
-        ><b> {{ ((1 / props.rate) * props.nominal).toFixed(3) }}</b>
-        {{ props.currency }}
-      </span>
+      <div>1 <span class="rate__currency">RUB</span></div>
+      <div>&nbsp;=&nbsp;</div>
+      <div>
+        <b>{{ ((1 / props.rate) * props.nominal).toFixed(3) }}</b> <span
+          class="rate__currency"> {{ props.currency }}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import 'Styles/imports.scss';
+
 .rate {
+  font-size: 1.75rem;
+
+  @include sm {
+    font-size: inherit;
+  }
+
   & > div {
     display: flex;
-    gap: 1rem;
 
-    span {
+    div {
       &:first-child {
         text-align: right;
         flex: 1;

@@ -22,6 +22,7 @@ const isGroing = computed(() => {
 <style lang='scss' scoped>
 .trend {
   color: red;
+  font-size: 1.5rem;
 
   &--green {
     color: green;

@@ -18,29 +18,26 @@ const props = defineProps<{
       :reverse="reverse"
     />
     <div class="rates-table__noresult" v-if="!data.length">
-      Нет подходящих результатов ¯\_(ツ)_/¯
+      No results...
     </div>
   </div>
-  <div v-else>loading ...</div>
+  <div class="rates-table__noresult" v-else>Loading ...</div>
 </template>
 
 <style lang="scss">
 .rates-table {
-  gap: 0.5rem;
+  gap: 3rem;
   display: grid;
   width: 100%;
 
   &__noresult {
-    font-size: 1.7rem;
+    color: grey;
+    padding: 2rem;
+    border-radius: 5rem;
+    background: var(--cardbackground);
   }
 
   .rates-item {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    &:nth-child(odd) {
-      background: rgba(0, 0, 0, 0.03);
-    }
   }
 }
 </style>

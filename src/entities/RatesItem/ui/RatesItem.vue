@@ -33,8 +33,11 @@ const props = defineProps<{
 <style lang="scss">
 .rates-item {
   display: grid;
-  grid-gap: 1rem;
+  gap: 0.5rem;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  border-radius: 10rem;
+  padding: 1rem;
+  background: var(--cardbackground);
 }
 </style>

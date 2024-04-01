@@ -11,6 +11,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --mainfontcolor: #fff;
+  --cardbackground: #201E26;
 }
 
 *,
@@ -95,8 +96,8 @@ select {
 
 #app {
   width: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   @include sm {
     width: 56rem;
@@ -109,6 +110,7 @@ select {
     background-color: #ffffff;
 
     --mainfontcolor: #213547;
+    --cardbackground: #f9f9f9;
   }
   a:hover {
     color: #747bff;

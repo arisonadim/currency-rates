@@ -28,6 +28,7 @@ const btnClick = () => {
   border: none;
   border-radius: 5rem;
   font-size: 2rem;
+  line-height: 3rem;
 
   &--margin {
     margin-top: 5rem;
