@@ -29,6 +29,7 @@ const props = defineProps<{
   gap: 3rem;
   display: grid;
   width: 100%;
+  padding-bottom: 5rem;
 
   &__noresult {
     color: grey;
