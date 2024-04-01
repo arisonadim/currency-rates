@@ -13,7 +13,7 @@ const isGroing = computed(() => {
 
 <template>
   <div class='trend' :class="{ 'trend--green': isGroing }">
-    <span>{{ isGroing ? '&#8599;' :  '&#8600;' }}</span>&nbsp;
+    <span>{{ isGroing ? '&#x2197;' :  '&#x2198;' }}</span>&nbsp;
     <span>{{ isGroing ? '+' : '-'  }}</span>
     <span>{{ Math.abs((props.current - props.previous)).toFixed(3)  }}</span>
   </div>
