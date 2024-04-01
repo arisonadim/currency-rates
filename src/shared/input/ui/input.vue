@@ -7,20 +7,16 @@ const props = defineProps<{
   clear?: boolean
   icon?: boolean
   disabled?: boolean
-  
 }>()
 
+const element = ref()
 const model = defineModel()
-
 const emit = defineEmits<{
   (e: 'clearInput'): void
 }>()
-
 const clearInput = () => {
   emit('clearInput')
 }
-
-const element = ref()
 
 onMounted(() => {
   element.value.focus()
