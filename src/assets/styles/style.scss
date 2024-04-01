@@ -1,8 +1,6 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import './imports.scss';
 
+:root {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -11,23 +9,73 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --mainfontcolor: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
-a:hover {
-  color: #535bf2;
+
+html {
+  font-family: $body-font-family;
+  font-size: $font-size-root;
+  line-height: 1.5;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    font-size: calc(100vw / 52);
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    font-size: 10px;
+  }
+}
+
+body,
+html {
+  height: 100%;
 }
 
 body {
+  font-size: 1.8rem;
+  font-weight: 500;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  text-align: center;
+
+  @include sm {
+    font-size: 1.7rem;
+  }
 }
 
 h1 {
@@ -35,40 +83,26 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
+input,
+select {
+  font-family: $body-font-family;
+  font-size: 2rem;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 40rem;
+
+  @include sm {
+    width: 56rem;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
+
+    --mainfontcolor: #213547;
   }
   a:hover {
     color: #747bff;
