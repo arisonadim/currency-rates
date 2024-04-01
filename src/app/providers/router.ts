@@ -7,7 +7,7 @@ import NotFound from 'Pages/404'
 const routes = [
   { path: '/', name: 'Home', component: Rates },
   { path: '/calc', name: 'Calc', component: Calculator },
-  { path: '/currency-rates', redirect: { name: 'Home' } },
+  // { path: '/currency-rates', redirect: { name: 'Home' } },
   { path: '/:NotFound(.*)', name: 'NotFound', component: NotFound },
 ]
 
