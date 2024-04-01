@@ -30,8 +30,8 @@ const btnClick = () => {
   font-size: 2rem;
 
   &--margin {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 }
 </style>

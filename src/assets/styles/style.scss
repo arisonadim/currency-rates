@@ -86,11 +86,17 @@ h1 {
 input,
 select {
   font-family: $body-font-family;
-  font-size: 2rem;
+  font-size: 2.4rem;
+
+  @include sm {
+    font-size: 2rem;
+  }
 }
 
 #app {
-  width: 40rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   @include sm {
     width: 56rem;

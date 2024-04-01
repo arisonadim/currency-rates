@@ -19,10 +19,10 @@ onMounted(() => {
 
 <style lang="scss">
 nav {
-  margin: 2rem auto;
+  margin: 5rem auto;
 
   a:not(:last-child) {
-    margin-right: 2rem;
+    margin-right: 5rem;
   }
 }
 </style>

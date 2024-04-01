@@ -35,7 +35,7 @@ watch(
       v-model:currency="fromCurrency"
       :select="ratesStore.rates"
     />
-    <Button @click="flip">&#8596;</Button>
+    <Button class="calculator__btn" @click="flip">&#8596;</Button>
     <InputWithSelect
       v-model:amount="toAmount"
       v-model:currency="toCurrency"
@@ -46,9 +46,26 @@ watch(
 </template>
 
 <style lang="scss">
+@import 'Styles/imports';
+
 .calculator {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-rows: auto;
+  gap: 5rem;
+  justify-items: center;
+
+  @include sm {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+  }
+
+  &__btn {
+    transform: rotate(-90deg);
+
+    @include sm {
+      transform: rotate(0deg);
+    }
+  }
 }
 </style>
