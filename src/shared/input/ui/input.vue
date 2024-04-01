@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 const props = defineProps<{
   placeholder?: string
   type?: 'text' | 'number'
@@ -17,6 +19,12 @@ const emit = defineEmits<{
 const clearInput = () => {
   emit('clearInput')
 }
+
+const element = ref()
+
+onMounted(() => {
+  element.value.focus()
+})
 </script>
 
 <template>
@@ -28,6 +36,7 @@ const clearInput = () => {
       </svg>
     </div>
     <input
+      ref="element"
       :type="props.type"
       :placeholder="props.placeholder"
       :disabled="props.disabled"

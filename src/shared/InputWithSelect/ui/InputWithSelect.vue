@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Rates } from 'App/types'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps<{
   placeholder?: string
@@ -7,16 +8,21 @@ const props = defineProps<{
   disabled?: boolean
 }>()
 
-// TODO validate on input
-
 const amount = defineModel('amount')
 const currency = defineModel('currency');
+const el = ref()
 
+onMounted(() => {
+  if(!props.disabled) {
+    el.value.focus()
+  }
+})
 </script>
 
 <template>
   <div class="input-select">
     <input
+      ref="el"
       type="number"
       min="0"
       :placeholder="props.placeholder"
@@ -53,7 +59,7 @@ const currency = defineModel('currency');
   @include sm {
     width: max(15rem, 100%);
   }
-  
+
   input {
     box-shadow: none;
     outline: none;
