@@ -1,22 +1,18 @@
 <script setup lang="ts">
-import { filename } from 'pathe/utils'
-
 const props = defineProps<{
   currency: string
   code: string
   name: string
 }>()
 
-const glob = import.meta.glob('@/assets/images/flags/*.png', { eager: true })
-const images = Object.fromEntries(
-  Object.keys(glob).map((key) => [filename(key), key])
-)
+const isProd = import.meta.env.PROD
+const prefix = isProd ? '/currency-rates' : ''
 </script>
 
 <template>
   <div class="currency">
     <div class="currency__flag">
-      <img :src="images[props.currency.toLowerCase()]" :alt="`${props.currency} flag`" />
+      <img :src="`${prefix}/flags/${props.currency.toLowerCase()}`" :alt="`${props.currency} flag`" />
     </div>
     <div class="currency__info">
       <div class="currency__char">
