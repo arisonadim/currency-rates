@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { filename } from 'pathe/utils'
 
 const props = defineProps<{
   currency: string
@@ -6,15 +7,16 @@ const props = defineProps<{
   name: string
 }>()
 
+const glob = import.meta.glob('@/assets/images/flags/*.png', { eager: true })
+const images = Object.fromEntries(
+  Object.keys(glob).map((key) => [filename(key), key])
+)
 </script>
 
 <template>
   <div class="currency">
     <div class="currency__flag">
-      <img
-        :src="`https://wise.com/public-resources/assets/flags/rectangle/${props.currency.toLowerCase()}.png`"
-        :alt="`${props.currency} flag`"
-      />
+      <img :src="images[props.currency.toLowerCase()]" :alt="`${props.currency} flag`" />
     </div>
     <div class="currency__info">
       <div class="currency__char">
