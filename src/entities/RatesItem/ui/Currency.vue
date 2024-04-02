@@ -12,7 +12,7 @@ const prefix = isProd ? '/currency-rates' : ''
 <template>
   <div class="currency">
     <div class="currency__flag">
-      <img :src="`${prefix}/flags/${props.currency.toLowerCase()}`" :alt="`${props.currency} flag`" />
+      <img :src="`${prefix}/flags/${props.currency.toLowerCase()}.png`" :alt="`${props.currency} flag`" />
     </div>
     <div class="currency__info">
       <div class="currency__char">
