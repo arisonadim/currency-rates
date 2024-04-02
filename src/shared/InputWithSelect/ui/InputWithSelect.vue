@@ -14,6 +14,7 @@ const el = ref()
 
 onMounted(() => {
   if(!props.disabled) {
+    amount.value = null
     el.value.focus()
   }
 })
